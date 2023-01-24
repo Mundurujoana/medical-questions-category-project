@@ -7,8 +7,6 @@ function App() {
       
     <div className="App">
      <Main />
-
-     {/* <CreatePage/> */}
     </div>
   )
 }
