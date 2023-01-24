@@ -5,12 +5,14 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import Dashboard from './components/Dashboard';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import Main from './components/Main';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" element={<Dashboard />} />
+        <Route exact path="/" element={<Main />} />
+        <Route exact path="/dashboard" element={<Dashboard />} />
       </Routes>
     </BrowserRouter>,
   </React.StrictMode>,
