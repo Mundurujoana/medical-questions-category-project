@@ -1,5 +1,5 @@
 import './App.css';
-import Dashboard from './components/Dashboard';
+import Forms from './Forms';
 import Main from "./components/Main";
 
 
@@ -7,7 +7,8 @@ function App() {
   return (
     <div className="App">
      {/* <Main /> */}
-     <Dashboard />
+     <Forms />
+
     </div>
   );
 }
