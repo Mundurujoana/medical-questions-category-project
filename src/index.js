@@ -1,18 +1,20 @@
 
-
-import {createRoot} from 'react-dom/client';
-import App from './App';
-import {BrowserRouter as Router} from 'react-router-dom';
-
-const rootElement = document.getElementById('root');
-const root = createRoot(rootElement);
-
-// 👇️ wrap App in Router
-
+import React from 'react';
+import ReactDOM from 'react-dom';
+import './index.css';
+import 'bootstrap/dist/css/bootstrap.css';
+import Dashboard from './components/Dashboard';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Router>
-    <App />
-  </Router>
+  <React.StrictMode>
+    <BrowserRouter>
+      <Routes>
+        <Route exact path="/" element={<Dashboard />} />
+        <Route exact path="/login" element={<Login />} />
+      </Routes>
+    </BrowserRouter>,
+  </React.StrictMode>,
 );
 
 
