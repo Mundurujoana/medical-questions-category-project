@@ -1,0 +1,21 @@
+.container {
+    width: 80%;
+    margin: 0 auto;
+  }
+  
+  .categories {
+    list-style: none;
+  }
+  
+  .category {
+    cursor: pointer;
+  }
+  
+  .questions {
+    display: none;
+  }
+  
+  .category:hover .questions {
+    display: block;
+  }
+  
