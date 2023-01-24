@@ -1,15 +1,18 @@
+
+import Main from './components/Main';
 import './App.css';
-import Dashboard from './components/Dashboard';
+import Forms from './Forms';
 import Main from "./components/Main";
 
 
 function App() {
-  return (
+    return (
+      
     <div className="App">
      {/* <Main /> */}
-     <Dashboard />
+     <Forms />
     </div>
-  );
+  )
 }
 
 export default App;

@@ -1,15 +1,32 @@
 
-import React from 'react';
-import ReactDOM from 'react-dom';
+
+import {createRoot} from 'react-dom/client';
 import App from './App';
-import './index.css';
-import 'bootstrap/dist/css/bootstrap.css';
-ReactDOM.render(
-<React.StrictMode>
-<App />
-</React.StrictMode>,
-document.getElementById('root')
+import {BrowserRouter as Router} from 'react-router-dom';
+
+const rootElement = document.getElementById('root');
+const root = createRoot(rootElement);
+
+// 👇️ wrap App in Router
+
+root.render(
+  <Router>
+    <App />
+  </Router>
 );
+
+
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+// import App from './App';
+// import './index.css';
+// import 'bootstrap/dist/css/bootstrap.css';
+// ReactDOM.render(
+// <React.StrictMode>
+// <App />
+// </React.StrictMode>,
+// document.getElementById('root')
+// );
 
 // import React from 'react';
 // import ReactDOM from 'react-dom/client';
