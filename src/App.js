@@ -1,15 +1,16 @@
-import './App.css';
-import Dashboard from './components/Dashboard';
-import Main from "./components/Main";
+
+import Main from './components/Main';
 
 
 function App() {
-  return (
+    return (
+      
     <div className="App">
-     {/* <Main /> */}
-     <Dashboard />
+     <Main />
+
+     {/* <CreatePage/> */}
     </div>
-  );
+  )
 }
 
 export default App;
