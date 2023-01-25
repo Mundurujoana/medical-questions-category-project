@@ -1,5 +1,3 @@
-
-import Main from './components/Main';
 import './App.css';
 import Forms from './Forms';
 import Main from "./components/Main";

@@ -1,26 +1,20 @@
-
 import React, { useEffect, useState } from 'react';
 import { doc, getDoc } from "firebase/firestore";
 import { db } from '../utils/firebase';
 import { useNavigate } from 'react-router-dom';
 import { Table, Card, Image, Button, Modal, Form, FloatingLabel } from 'react-bootstrap';
 import './styles.css';
-
 function Main() {
   const [choseCategory, setChooseCategory] = useState('');
   const [data, setData] = useState([]);
   const navigate = useNavigate();
-
   // const handleCategoryChange = (event) => {
   //   setSelectedCategory(event.target.value);
   // };
-
-
   const handleFormSubmit = (event) => {
     event.preventDefault();
     navigate('/dashboard');
   };
-
   const handleSyncData = async () => {
     const dataRef = doc(db, `categories/${choseCategory}`);
     const docSnap = await getDoc(dataRef);
@@ -36,12 +30,9 @@ function Main() {
       handleSyncData();
     }
   }, [choseCategory]);
-
-
   const handleChange = (e) => {
     setChooseCategory(e.target.value)
   }
-
   return (
     <div className="App">
       <form onSubmit={handleFormSubmit}>
@@ -85,5 +76,11 @@ function Main() {
     </div>
   );
 }
-
 export default Main;
+
+
+
+
+
+
+
