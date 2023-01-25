@@ -64,11 +64,11 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 const storage = getStorage(app);
 
-const addNewQuestion= async (category,questions)=>{
+export const addNewQuestion= async (category,questions)=>{
   await db.collection("categories")
-  .doc("health")
+  .doc(category)
   .set({
-    questions: newQuestion,
+    questions,
   })
   .then(function () {
     console.log("Value successfully written!");
