@@ -64,6 +64,20 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 const storage = getStorage(app);
 
+const addNewQuestion= async (category,questions)=>{
+  await db.collection("categories")
+  .doc("health")
+  .set({
+    questions: newQuestion,
+  })
+  .then(function () {
+    console.log("Value successfully written!");
+  })
+  .catch(function (error) {
+    console.error("Error writing Value: ", error);
+  });
+}
+
 
 // const logInWithEmailAndPassword = async (email, password) => {
 //   try {
