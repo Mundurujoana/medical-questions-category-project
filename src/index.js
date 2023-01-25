@@ -6,7 +6,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Dashboard from './components/Dashboard';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
-import Forms from './Forms';
+import Forms from './components/Forms';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
