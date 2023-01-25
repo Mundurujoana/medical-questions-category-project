@@ -5,46 +5,17 @@ import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import Dashboard from './components/Dashboard';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import Main from './components/Main';
+import Home from './pages/Home';
+import Forms from './Forms';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route exact path="/" element={<Main />} />
+        <Route exact path="/" element={<Home />} />
+        <Route exact path="/new" element={<Forms />} />
         <Route exact path="/dashboard" element={<Dashboard />} />
       </Routes>
     </BrowserRouter>,
   </React.StrictMode>,
 );
-
-
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import App from './App';
-// import './index.css';
-// import 'bootstrap/dist/css/bootstrap.css';
-// ReactDOM.render(
-// <React.StrictMode>
-// <App />
-// </React.StrictMode>,
-// document.getElementById('root')
-// );
-
-// import React from 'react';
-// import ReactDOM from 'react-dom/client';
-// import './index.css';
-// import App from './App';
-// import reportWebVitals from './reportWebVitals';
-
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>
-// );
-
-// // If you want to start measuring performance in your app, pass a function
-// // to log results (for example: reportWebVitals(console.log))
-// // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-// reportWebVitals();
