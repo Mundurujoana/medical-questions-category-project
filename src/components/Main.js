@@ -17,20 +17,32 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <form onSubmit={handleFormSubmit}>
-        <label>
-          Select a category:
-          <select value={selectedCategory} onChange={handleCategoryChange}>
-            <option value="">Select a category</option>
-            <option value="category1">Category 1</option>
-            <option value="category2">Category 2</option>
-            <option value="category3">Category 3</option>
-          </select>
-        </label>
-        <input type="submit" value="Submit" />
-      </form>
+    <div className="Main">
+    <div className="navbar">
+    <img src="path/to/logo.png" alt="logo" />
+    <a href="#">Home</a>
+    <a href="#">About</a>
+    <a href="#">Contact</a>
+  </div>
+  <div className="container">
+    <form onSubmit={handleFormSubmit}>
+      <label>
+        Select a category:
+        <select value={selectedCategory} onChange={handleCategoryChange}>
+          <option value="">Select a category</option>
+          <option value="category1">Category 1</option>
+          <option value="category2">Category 2</option>
+          <option value="category3">Category 3</option>
+        </select>
+      </label>
+      <input type="submit" value="Submit" />
+    </form>
     </div>
+    <div className="footer">
+      Copyright © 2023
+    </div>
+  </div>
+  
   );
 }
 
