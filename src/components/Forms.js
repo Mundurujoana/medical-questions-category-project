@@ -1,4 +1,6 @@
+import { addDoc, collection, doc, where } from 'firebase/firestore';
 import React, { useState } from 'react';
+import { db } from '../utils/firebase';
 
 function Forms() {
   const [changeCategory,setChangeCategory] = useState("");
@@ -17,7 +19,27 @@ function Forms() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(newQuestion)
+    // console.log(newQuestion)
+    //   const dataRef = doc(db, `categories/${changeCategory}`);
+    //   addDoc(collection(dataRef,newQuestion))
+    //   .then(res=>{
+    //     console.log(res,"Submitted sucessfull")
+    //   })
+    //   .catch(err=>{
+    //     console.log(err,"errooooo");
+    //   })
+
+// const taskQuery =doc(collection(db, "categories"), where("uid", "==", changeCategory))
+// console.log(taskQuery)
+// const taskDocs = getDocs(taskQuery)
+// taskDocs.forEach((taskDoc) => {
+//   await setDoc(taskDoc.ref, {
+//     name: 'prueba',
+//     uid: currentUser,
+//     projectId: newDocRef.id
+//   })
+// })
+
   }
 
 

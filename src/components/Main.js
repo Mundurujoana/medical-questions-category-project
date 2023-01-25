@@ -69,9 +69,9 @@ function Main() {
           {(data.questions) && (data.questions.map((Item, index) => (
           <tr key={index}>
              <td>{index + 1}</td>
-             <td>Category
+             <td>{Item.category}
              </td>
-             <td>{Item
+             <td>{Item.questions
              }</td>
              <td>
              <Button variant='primary'>Edit</Button>{' '}
