@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Table, Card, Image, Button, Modal, Form, FloatingLabel } from 'react-bootstrap';
-import { collection, doc, getDoc } from "firebase/firestore";
+import { Table, Card, Button, Modal, Form, FloatingLabel } from 'react-bootstrap';
+import { doc, getDoc } from "firebase/firestore";
 import { db } from '../utils/firebase';
 
 const Dashboard = (props) => {

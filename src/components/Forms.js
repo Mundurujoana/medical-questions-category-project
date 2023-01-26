@@ -57,7 +57,7 @@ function Forms() {
         <input type="text" name='question' value={newQuestion.question} onChange={handleChange} />
       </label>
       <br />
-      <button type="submit">Add</button>
+      <button className='buttonAdd' type="submit">Add</button>
     </form>
   );
 }

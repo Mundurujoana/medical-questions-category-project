@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { collection, getDocs } from "firebase/firestore";
 import { db } from '../utils/firebase';
 import { Link, useNavigate } from 'react-router-dom';
-import { Table, Card, Image, Button, Modal, Form, FloatingLabel } from 'react-bootstrap';
+import { Table,  Button } from 'react-bootstrap';
 import './styles.css';
 function Main() {
   const [choseCategory, setChooseCategory] = useState('');
