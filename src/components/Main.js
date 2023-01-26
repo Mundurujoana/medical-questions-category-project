@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { collection, doc, getDoc, getDocs } from "firebase/firestore";
+import { collection, getDocs } from "firebase/firestore";
 import { db } from '../utils/firebase';
 import { useNavigate } from 'react-router-dom';
 import { Table, Card, Image, Button, Modal, Form, FloatingLabel } from 'react-bootstrap';
@@ -8,43 +8,20 @@ function Main() {
   const [choseCategory, setChooseCategory] = useState('');
   const [data, setData] = useState([]);
   const navigate = useNavigate();
-  // const handleCategoryChange = (event) => {
-  //   setSelectedCategory(event.target.value);
-  // };
+
   const handleFormSubmit = (event) => {
     event.preventDefault();
     navigate('/dashboard');
   };
   const handleSyncData = async () => {
-    // const dataRef = doc(db, `categories/${choseCategory}`);
-    // const docSnap = await getDoc(dataRef);
-    // if (docSnap.exists()) {
-    //   const result = docSnap.data();
-    //   console.log(result);
-    //   setData(result)
-    // } else {
-    //   console.log("something went wrong")
-    // }
-
-
-    const querySnapshot = await getDocs(collection(db, "categories/health/questions"));
+    const querySnapshot = await getDocs(collection(db, `categories/${choseCategory}/questions`));
     querySnapshot.forEach((doc) => {
-      // doc.data() is never undefined for query doc snapshots
       const tempDoc = []
           querySnapshot.forEach((doc) => {
              tempDoc.push({ id: doc.id, ...doc.data() })
           })
           setData(tempDoc);
     });
-
-    // const events = await getDocs(collection(db, "categories"));
-    // events.get().then((querySnapshot) => {
-    //     const tempDoc = []
-    //     querySnapshot.forEach((doc) => {
-    //        tempDoc.push({ id: doc.id, ...doc.data() })
-    //     })
-    //     console.log(tempDoc)
-    //  })
   };
   useEffect(() => {
     if (choseCategory !== "") {

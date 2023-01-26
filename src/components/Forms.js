@@ -1,4 +1,3 @@
-import { async } from '@firebase/util';
 import { addDoc, collection, doc, getDocs, query, setDoc, where } from 'firebase/firestore';
 import React, { useState } from 'react';
 import { db } from '../utils/firebase';
@@ -21,9 +20,9 @@ function Forms() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const citiesRef = collection(db, 'categories');
-    addDoc(collection(citiesRef, 'health', 'questions'), {
-      category: 'Golden Gate Bridge',
-      question: 'What is a doctor ?'
+    addDoc(collection(citiesRef, newQuestion.category, 'questions'), {
+      category: newQuestion.category,
+      question: newQuestion.question
   })
   .then(()=>{
     alert("new question added success full!")
@@ -33,8 +32,7 @@ function Forms() {
   })
      
   }
-
-
+  
   return (
     <form onSubmit={handleSubmit}>
       <label>
