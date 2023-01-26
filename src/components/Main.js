@@ -4,6 +4,7 @@ import { db } from '../utils/firebase';
 import { Link, useNavigate } from 'react-router-dom';
 import { Table, Card, Image, Button, Modal, Form, FloatingLabel } from 'react-bootstrap';
 import './styles.css';
+import Sidebar from './Sidebar';
 function Main() {
   const [choseCategory, setChooseCategory] = useState('');
   const [data, setData] = useState([]);
@@ -33,6 +34,7 @@ function Main() {
   }
   return (
     <div className="App">
+      <Sidebar/>
       <form onSubmit={handleFormSubmit}>
         <label>
           Select a category:

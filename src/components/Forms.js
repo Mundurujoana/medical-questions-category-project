@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { db } from '../utils/firebase';
 import '../form.css';
 import { useNavigate } from "react-router-dom";
+import Sidebar from './Sidebar';
 
 function Forms() {
   const [changeCategory, setChangeCategory] = useState("");
@@ -39,6 +40,8 @@ function Forms() {
   }
   
   return (
+    <div>
+      <Sidebar/>
     <form onSubmit={handleSubmit}>
       <label>
         Select a category:
@@ -59,6 +62,7 @@ function Forms() {
       <br />
       <button type="submit">Add</button>
     </form>
+    </div>
   );
 }
 export default Forms;
