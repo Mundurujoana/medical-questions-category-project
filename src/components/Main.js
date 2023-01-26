@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { collection, getDocs } from "firebase/firestore";
 import { db } from '../utils/firebase';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Table, Card, Image, Button, Modal, Form, FloatingLabel } from 'react-bootstrap';
 import './styles.css';
 function Main() {
@@ -63,7 +63,7 @@ function Main() {
                <td>{Item.question
                }</td>
                <td>
-               <Button variant='primary' className={Item.id} >Edit</Button>{' '}
+               <Link to={`answer/${Item.id}`} variant='primary'>Find answer</Link>
                <Button variant='danger' className={Item.id}>Delete</Button>
            </td>
             </tr>

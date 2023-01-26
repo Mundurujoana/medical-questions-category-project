@@ -1,7 +1,8 @@
-import { addDoc, collection, doc, getDocs, query, setDoc, where } from 'firebase/firestore';
+import { addDoc, collection } from 'firebase/firestore';
 import React, { useState } from 'react';
 import { db } from '../utils/firebase';
 import '../form.css';
+import { useNavigate } from "react-router-dom";
 
 function Forms() {
   const [changeCategory, setChangeCategory] = useState("");
@@ -9,6 +10,8 @@ function Forms() {
     category: "",
     question: "",
   })
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setNewQuestion({
@@ -26,7 +29,8 @@ function Forms() {
       question: newQuestion.question
   })
   .then(()=>{
-    alert("new question added success full!")
+    alert("new question added successfully!")
+    navigate("/")
   })
   .catch(err=>{
     console.log(err)
