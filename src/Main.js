@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { doc, getDoc } from "firebase/firestore";
-import { db } from '../utils/firebase';
+import { db } from './utils/firebase';
 import { useNavigate } from 'react-router-dom';
 import { Table, Card, Image, Button, Modal, Form, FloatingLabel } from 'react-bootstrap';
 import './styles.css';
+import Sidebar from './Sidebar';
+
+
 function Main() {
   const [choseCategory, setChooseCategory] = useState('');
+  const [showSidebar, setShowSidebar] = useState(false);
   const [data, setData] = useState([]);
   const navigate = useNavigate();
   // const handleCategoryChange = (event) => {
@@ -35,6 +39,7 @@ function Main() {
   }
   return (
     <div className="App">
+      <Sidebar/>
       <form onSubmit={handleFormSubmit}>
         <label>
           Select a category:

@@ -1,0 +1,61 @@
+.sidebar {
+    position: fixed; /* Fix the sidebar to the left of the screen */
+    top: 0;
+    left: 0;
+    width: 250px; /* Set the width of the sidebar */
+    height: 100vh; /* Set the height of the sidebar to take up the full height of the screen */
+    background: #38796d; /* Set the background color of the sidebar */
+    padding: 20px; /* Add some padding to the inside of the sidebar */
+    
+
+  }
+  
+
+  .sidebar nav {
+    /* Style the navigation container */
+    margin-top: 20px; /* Add some margin to the top of the navigation */
+  }
+  
+  .sidebar nav ul {
+    /* Style the list of navigation links */
+    list-style: none; /* Remove the bullet points from the list */
+    margin: 0; /* Remove the default margin from the list */
+    padding: 0; /* Remove the default padding from the list */
+  }
+  
+  .sidebar nav ul li {
+    /* Style each navigation link */
+    margin-bottom: 10px; /* Add some margin to the bottom of each link */
+  }
+  
+  .sidebar nav ul li a {
+    /* Style the link text */
+    color: rgb(0, 0, 0); /* Set the color of the text */
+    text-decoration: none; /* Remove the underline from the text */
+    font-size: 14px; /* Set the font size of the text */
+    display: block; /* Make the link take up the full width of its parent container */
+    padding: 8px; /* Add some padding to the link */
+    transition: background 0.3s ease; /* Add a transition to the background color */
+  }
+  
+  .sidebar nav ul li a:hover {
+    /* Change the background color of the link when hovered */
+    background: #e5e5e5;
+  }
+  
+  .sidebar nav ul li a.active {
+  background: #e5e5e5;
+}
+
+.sidebar .footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    bottom: 0;
+    position: absolute;
+    width: 270px;
+    left: 0;
+  }
+
+ 
