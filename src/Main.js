@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { doc, getDoc } from "firebase/firestore";
-import { db } from './utils/firebase';
+import { collection, getDocs } from "firebase/firestore";
+import { db } from '../utils/firebase';
 import { useNavigate } from 'react-router-dom';
 import { Table, Card, Image, Button, Modal, Form, FloatingLabel } from 'react-bootstrap';
 import './styles.css';
@@ -12,22 +12,20 @@ function Main() {
   const [showSidebar, setShowSidebar] = useState(false);
   const [data, setData] = useState([]);
   const navigate = useNavigate();
-  // const handleCategoryChange = (event) => {
-  //   setSelectedCategory(event.target.value);
-  // };
+
   const handleFormSubmit = (event) => {
     event.preventDefault();
     navigate('/dashboard');
   };
   const handleSyncData = async () => {
-    const dataRef = doc(db, `categories/${choseCategory}`);
-    const docSnap = await getDoc(dataRef);
-    if (docSnap.exists()) {
-      const result = docSnap.data();
-      setData(result)
-    } else {
-      console.log("something went wrong")
-    }
+    const querySnapshot = await getDocs(collection(db, `categories/${choseCategory}/questions`));
+    querySnapshot.forEach((doc) => {
+      const tempDoc = []
+          querySnapshot.forEach((doc) => {
+             tempDoc.push({ id: doc.id, ...doc.data() })
+          })
+          setData(tempDoc);
+    });
   };
   useEffect(() => {
     if (choseCategory !== "") {
@@ -62,19 +60,19 @@ function Main() {
             </tr>
           </thead>
           <tbody>
-          {(data.questions) && (data.questions.map((Item, index) => (
-          <tr key={index}>
-             <td>{index + 1}</td>
-             <td>{Item.category}
-             </td>
-             <td>{Item.questions
-             }</td>
-             <td>
-             <Button variant='primary'>Edit</Button>{' '}
-             <Button variant='danger'>Delete</Button>
-         </td>
-          </tr>
-          )))}
+          {(data.length >0) && (data.map((Item, index) => (
+            <tr key={Item.id}>
+               <td>{index + 1}</td>
+               <td>{Item.category}
+               </td>
+               <td>{Item.question
+               }</td>
+               <td>
+               <Button variant='primary' className={Item.id} >Edit</Button>{' '}
+               <Button variant='danger' className={Item.id}>Delete</Button>
+           </td>
+            </tr>
+            )))}
           </tbody>
         </Table>
       </form>
