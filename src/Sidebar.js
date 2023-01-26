@@ -18,7 +18,7 @@ function Sidebar() {
         <ul>
           <li><Link to="/main" className={currentLink === 0 ? 'active' : ''}
                  onClick={() => handleClick(0)}>Asked Questions</Link></li>
-          <li><Link to="/display" className={currentLink === 1 ? 'active' : ''} 
+          <li><Link to="/new" className={currentLink === 1 ? 'active' : ''} 
                   onClick={() => handleClick(1)}>Ask Questions</Link></li>
         </ul>
       </nav>

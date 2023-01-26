@@ -1,5 +1,6 @@
 import { addDoc, collection, doc, getDocs, query, setDoc, where } from 'firebase/firestore';
 import React, { useState } from 'react';
+import Sidebar from '../Sidebar';
 import { db } from '../utils/firebase';
 import '../form.css';
 
@@ -35,6 +36,9 @@ function Forms() {
   }
   
   return (
+       
+    <>
+    <Sidebar/>
     <form onSubmit={handleSubmit}>
       <label>
         Select a category:
@@ -55,6 +59,7 @@ function Forms() {
       <br />
       <button className='buttonAdd' type="submit">Add</button>
     </form>
+    </>
   );
 }
 export default Forms;
