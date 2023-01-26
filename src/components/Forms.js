@@ -20,104 +20,18 @@ function Forms() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-
-    // Your Firebase SDK Initialization code here
-    
-    
-    const docRef = doc(db, "categories", "health" );
-    
-    const data = {
-       name: "Ottawa",
-       country: "Canada",
-       province: "OFF"
-    };
-    
-    setDoc(docRef, data).then(()=>{
-      console.log("Suceess")
-    })
-    .catch(error => {
-        console.log(error);
-    })
-
-    // const q = query(collection(db, "categories"));
-    //     const querySnapshot = await getDocs(q);
-    //     const queryData = querySnapshot.docs.map((detail) => ({
-    //         ...detail.data(),
-    //         id: detail.id,
-    //     }));
-    //     console.log(queryData);
-    //     queryData.map(async (v) => {
-    // await setDoc(doc(db, `categories/health/results`, "questions"), newQuestion);
-    // })
-    // const dbRef = collection(db, "categories");
-    //   const citiesRef =await collection(db, 'categories');
-    //   // await setDoc(doc(db, "categories", "health"), newQuestion);
-    //   await addDoc(collection(citiesRef, 'categories', 'sports'), {
-    //     name: 'Golden Gate Bridge',
-    //     type: 'bridge'
-    // })
-
-    // addDoc(dbRef, newQuestion)
-    //   .then(docRef => {
-    //     console.log(dbRef.id); //p4eZcO5QV43IYnigxALJ
-    //   })
-    //   .catch(error => {
-    //     console.log(error);
-    //   })
-
-    // const docRef = doc(db, "categories", "health");
-    // const colRef = collection(docRef, "health")
-    // addDoc(colRef, {
-    //   category: "health",
-    //   question: "what is health?"
-    // });
-
-
-    // await db.collection("categories")
-    //   .doc("health")
-    //   .set({
-    //     questions: newQuestion,
-    //   })
-    //   .then(function () {
-    //     console.log("Value successfully written!");
-    //   })
-    //   .catch(function (error) {
-    //     console.error("Error writing Value: ", error);
-    //   });
-    // try {
-    //   const docRef = await addDoc(collection(db, "categories"),
-    //     newQuestion
-    //   );
-    //   console.log("Document written with ID: ", docRef.id);
-    // } catch (e) {
-    //   console.error("Error adding document: ", e);
-    // }
-
-    // addDoc(doc(db, `categories/sports`),changeCategory )
-    // .then(res=>{
-    //   console.log(res)
-    // })
-    // .catch(err=>{
-    //   console.log(err)
-    // })
-    //   const dataRef = doc(db, `categories/${changeCategory}`);
-    //   addDoc(collection(dataRef,newQuestion))
-    //   .then(res=>{
-    //     console.log(res,"Submitted sucessfull")
-    //   })
-    //   .catch(err=>{
-    //     console.log(err,"errooooo");
-    //   })
-    // const taskDocs = getDocs(taskQuery)
-    // taskDocs.forEach((taskDoc) => {
-    //   await setDoc(taskDoc.ref, {
-    //     name: 'prueba',
-    //     uid: currentUser,
-    //     projectId: newDocRef.id
-    //   })
-    // })
-
+    const citiesRef = collection(db, 'categories');
+    addDoc(collection(citiesRef, 'health', 'questions'), {
+      category: 'Golden Gate Bridge',
+      question: 'What is a doctor ?'
+  })
+  .then(()=>{
+    alert("new question added success full!")
+  })
+  .catch(err=>{
+    console.log(err)
+  })
+     
   }
 
 
