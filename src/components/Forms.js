@@ -1,10 +1,10 @@
-import { addDoc, collection, doc, where } from 'firebase/firestore';
+import { addDoc, collection, doc, getDocs, query, setDoc, where } from 'firebase/firestore';
 import React, { useState } from 'react';
 import { db } from '../utils/firebase';
 import '../form.css';
 
 function Forms() {
-  const [changeCategory,setChangeCategory] = useState("");
+  const [changeCategory, setChangeCategory] = useState("");
   const [newQuestion, setNewQuestion] = useState({
     category: "",
     question: "",
@@ -13,37 +13,27 @@ function Forms() {
   const handleChange = (e) => {
     setNewQuestion({
       ...newQuestion,
-      category:changeCategory,
+      category: changeCategory,
       question: e.target.value
     })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log(newQuestion)
-    //   const dataRef = doc(db, `categories/${changeCategory}`);
-    //   addDoc(collection(dataRef,newQuestion))
-    //   .then(res=>{
-    //     console.log(res,"Submitted sucessfull")
-    //   })
-    //   .catch(err=>{
-    //     console.log(err,"errooooo");
-    //   })
-
-// const taskQuery =doc(collection(db, "categories"), where("uid", "==", changeCategory))
-// console.log(taskQuery)
-// const taskDocs = getDocs(taskQuery)
-// taskDocs.forEach((taskDoc) => {
-//   await setDoc(taskDoc.ref, {
-//     name: 'prueba',
-//     uid: currentUser,
-//     projectId: newDocRef.id
-//   })
-// })
-
+    const citiesRef = collection(db, 'categories');
+    addDoc(collection(citiesRef, newQuestion.category, 'questions'), {
+      category: newQuestion.category,
+      question: newQuestion.question
+  })
+  .then(()=>{
+    alert("new question added success full!")
+  })
+  .catch(err=>{
+    console.log(err)
+  })
+     
   }
-
-
+  
   return (
     <form onSubmit={handleSubmit}>
       <label>
@@ -52,9 +42,9 @@ function Forms() {
           setChangeCategory(e.target.value);
         }}>
           <option value="" >Select a category</option>
-          <option  value="health">Health</option>
-          <option  value="education">Education</option>
-          <option  value="sports">Sports</option>
+          <option value="health">Health</option>
+          <option value="education">Education</option>
+          <option value="sports">Sports</option>
         </select>
       </label>
       <br />
