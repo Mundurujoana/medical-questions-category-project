@@ -1,6 +1,7 @@
 import { addDoc, collection, doc, where } from 'firebase/firestore';
 import React, { useState } from 'react';
 import { db } from '../utils/firebase';
+import '../form.css';
 
 function Forms() {
   const [changeCategory,setChangeCategory] = useState("");
